@@ -1,28 +1,64 @@
 import React from "react"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { Separator } from "@/components/ui/separator"
 
 export default function TermsOfServicePage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <main className="flex-1 py-16 md:py-24 px-4 container mx-auto">
-        <h1 className="font-serif text-3xl md:text-4xl font-semibold mb-6 text-center">
-          Terms of Service
-        </h1>
-        <div className="prose max-w-3xl mx-auto text-foreground">
-          <p>Welcome to Marry.mk. By using our website, you agree to comply with these terms.</p>
-          <h2>Use of Our Platform</h2>
-          <p>You may use our platform to browse venues, make bookings, and communicate with venue owners. Unauthorized use is prohibited.</p>
-          <h2>Booking and Payments</h2>
-          <p>All bookings are subject to approval by venue owners. Payments are handled securely and may involve third-party services.</p>
-          <h2>Account Responsibilities</h2>
-          <p>You are responsible for maintaining the confidentiality of your account credentials. Notify us immediately of any unauthorized use.</p>
-          <h2>Limitation of Liability</h2>
-          <p>Marry.mk is not liable for issues arising from venue bookings, cancellations, or disputes between customers and venue owners.</p>
-          <h2>Changes to Terms</h2>
-          <p>We may update these terms periodically. Continued use of the platform constitutes acceptance of the updated terms.</p>
-        </div>
+      <main className="flex-1">
+        <section className="bg-primary/5 py-16">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
+              Terms of Service
+            </h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              By using Marry.mk, you agree to comply with these terms. Please read carefully before using our services.
+            </p>
+          </div>
+        </section>
+
+        <section className="py-16 container mx-auto px-4 max-w-4xl space-y-10">
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">Using Our Platform</h2>
+            <p className="text-muted-foreground">
+              You may browse venues, submit bookings, and communicate with venue owners responsibly. Unauthorized actions are prohibited.
+            </p>
+            <Separator />
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">Booking Rules</h2>
+            <p className="text-muted-foreground">
+              All bookings are subject to approval by venue owners. Payments are handled securely through trusted providers.
+            </p>
+            <Separator />
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">Account Responsibility</h2>
+            <p className="text-muted-foreground">
+              Keep your account credentials safe. Notify us immediately of any unauthorized access.
+            </p>
+            <Separator />
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">Limitation of Liability</h2>
+            <p className="text-muted-foreground">
+              Marry.mk is not responsible for issues arising from bookings, cancellations, or disputes with venue owners.
+            </p>
+            <Separator />
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">Changes to Terms</h2>
+            <p className="text-muted-foreground">
+              We may update these terms periodically. Continued use of our platform constitutes acceptance of updated terms.
+            </p>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
