@@ -1,28 +1,56 @@
 import React from "react"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { Separator } from "@/components/ui/separator"
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <main className="flex-1 py-16 md:py-24 px-4 container mx-auto">
-        <h1 className="font-serif text-3xl md:text-4xl font-semibold mb-6 text-center">
-          Privacy Policy
-        </h1>
-        <div className="prose max-w-3xl mx-auto text-foreground">
-          <p>Your privacy is important to us. At Marry.mk, we are committed to protecting your personal information and respecting your privacy.</p>
-          <h2>Information We Collect</h2>
-          <p>We may collect information such as your name, email, phone number, and details about your wedding venue preferences when you use our platform.</p>
-          <h2>How We Use Your Information</h2>
-          <p>Your data is used to provide services, improve your experience, process bookings, and communicate with you about your requests.</p>
-          <h2>Data Sharing</h2>
-          <p>We do not sell your personal information. We may share information with venue owners for booking purposes, or comply with legal obligations if required.</p>
-          <h2>Cookies</h2>
-          <p>We use cookies to enhance site performance and user experience. You can manage cookie preferences in your browser.</p>
-          <h2>Contact Us</h2>
-          <p>If you have questions about this policy, please reach out via our <a href="/contact" className="text-primary hover:underline">Contact Page</a>.</p>
-        </div>
+      <main className="flex-1">
+        <section className="bg-primary/5 py-16">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
+              Privacy Policy
+            </h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Your privacy is our priority. We are committed to protecting your personal information and ensuring your data is handled responsibly.
+            </p>
+          </div>
+        </section>
+
+        <section className="py-16 container mx-auto px-4 max-w-4xl space-y-10">
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">Information We Collect</h2>
+            <p className="text-muted-foreground">
+              We may collect details such as your name, email, phone number, and booking preferences to provide our services efficiently.
+            </p>
+            <Separator />
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">How We Use Your Information</h2>
+            <p className="text-muted-foreground">
+              Your data helps us manage bookings, improve our platform, and communicate with you effectively. We never sell your personal information.
+            </p>
+            <Separator />
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">Cookies & Tracking</h2>
+            <p className="text-muted-foreground">
+              Cookies are used to enhance user experience and performance. You can manage your preferences in your browser.
+            </p>
+            <Separator />
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">Contact Us</h2>
+            <p className="text-muted-foreground">
+              Questions about privacy? Reach out via our <a href="/contact" className="text-primary hover:underline">Contact Page</a>.
+            </p>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
