@@ -74,7 +74,7 @@ export function HeroSection() {
           {/* Quick Stats */}
           <div className="mt-16 flex flex-wrap justify-center gap-8 md:gap-16 text-white">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-serif font-semibold text-primary">50+</div>
+              <div className="text-3xl md:text-4xl font-serif font-semibold text-primary">1+</div>
               <div className="text-sm text-gray-200">Verified Venues</div>
             </div>
             <div className="text-center">
