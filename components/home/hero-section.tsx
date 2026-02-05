@@ -26,7 +26,7 @@ export function HeroSection() {
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
           backgroundImage:
-            "url('https://www.newsnationnow.com/wp-content/uploads/sites/108/2025/04/GettyImages-2090025382.jpg?w=1752&h=986&crop=1')",
+            "url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1920&q=80')",
         }}
       />
 
