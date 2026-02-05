@@ -1,7 +1,6 @@
 "use client"
 
-import React from "react"
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -38,53 +37,48 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
   const router = useRouter()
   const { t } = useLanguage()
 
+  const supabase = createClient()
+
   // Pre-fill form if user is logged in
   useEffect(() => {
-    const supabase = createClient()
     supabase.auth.getUser().then(({ data: { user } }) => {
-      if (user?.email) {
-        setEmail(user.email)
-      }
-      if (user?.user_metadata?.full_name) {
-        setName(user.user_metadata.full_name)
-      }
+      if (user?.email) setEmail(user.email)
+      if (user?.user_metadata?.full_name) setName(user.user_metadata.full_name)
     })
-  }, [])
+  }, [supabase])
 
   const bookedDateSet = new Set(bookedDates)
 
   const isDateBooked = (date: Date) => {
-    const dateString = date.toISOString().split("T")[0]
+    const dateString = formatDateLocal(date)
     return bookedDateSet.has(dateString)
+  }
+
+  // Helper to format date in local timezone YYYY-MM-DD
+  const formatDateLocal = (date: Date) => {
+    const year = date.getFullYear()
+    const month = String(date.getMonth() + 1).padStart(2, "0")
+    const day = String(date.getDate()).padStart(2, "0")
+    return `${year}-${month}-${day}`
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     if (!date) {
-      toast({
-        title: t("error"),
-        description: t("selectDate"),
-        variant: "destructive",
-      })
+      toast({ title: t("error"), description: t("selectDate"), variant: "destructive" })
       return
     }
-
     if (!name || !email) {
-      toast({
-        title: t("error"),
-        description: t("fillRequiredFields"),
-        variant: "destructive",
-      })
+      toast({ title: t("error"), description: t("fillRequiredFields"), variant: "destructive" })
       return
     }
 
     setIsSubmitting(true)
 
-    const supabase = createClient()
-    const eventDate = date.toISOString().split("T")[0]
+    const eventDate = formatDateLocal(date)
 
-    // Double-check availability before submitting
+    // Double-check availability
     const { data: existingBooking } = await supabase
       .from("reservations")
       .select("id")
@@ -94,11 +88,7 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
       .maybeSingle()
 
     if (existingBooking) {
-      toast({
-        title: t("error"),
-        description: t("dateNotAvailable"),
-        variant: "destructive",
-      })
+      toast({ title: t("error"), description: t("dateNotAvailable"), variant: "destructive" })
       setIsSubmitting(false)
       return
     }
@@ -107,8 +97,8 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
     const totalPrice = hall.price_per_guest
       ? Number(hall.price_per_guest) * guestCount
       : hall.base_price
-        ? Number(hall.base_price)
-        : null
+      ? Number(hall.base_price)
+      : null
 
     const { error } = await supabase.from("reservations").insert({
       hall_id: hall.id,
@@ -124,28 +114,17 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
 
     if (error) {
       console.error("Booking error:", error)
-      if (error.code === "23505") {
-        toast({
-          title: t("error"),
-          description: t("dateNotAvailable"),
-          variant: "destructive",
-        })
-      } else {
-        toast({
-          title: t("error"),
-          description: t("bookingError"),
-          variant: "destructive",
-        })
-      }
+      toast({
+        title: t("error"),
+        description: error.code === "23505" ? t("dateNotAvailable") : t("bookingError"),
+        variant: "destructive",
+      })
       setIsSubmitting(false)
       return
     }
 
     setIsSuccess(true)
-    toast({
-      title: t("success"),
-      description: t("bookingSubmitted"),
-    })
+    toast({ title: t("success"), description: t("bookingSubmitted") })
 
     setTimeout(() => {
       onClose()
@@ -178,8 +157,7 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
           {/* Date Selection */}
           <div className="space-y-2">
             <Label className="flex items-center gap-2 text-sm font-medium">
-              <CalendarDays className="h-4 w-4" />
-              {t("selectDate")} *
+              <CalendarDays className="h-4 w-4" /> {t("selectDate")} *
             </Label>
             <div className="flex justify-center border rounded-lg p-2 overflow-x-auto">
               <Calendar
@@ -191,15 +169,8 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
                   today.setHours(0, 0, 0, 0)
                   return date < today || isDateBooked(date)
                 }}
-                modifiers={{
-                  booked: (date) => isDateBooked(date),
-                }}
-                modifiersStyles={{
-                  booked: {
-                    textDecoration: "line-through",
-                    color: "var(--muted-foreground)",
-                  },
-                }}
+                modifiers={{ booked: (date) => isDateBooked(date) }}
+                modifiersStyles={{ booked: { textDecoration: "line-through", color: "var(--muted-foreground)" } }}
                 className="rounded-md"
               />
             </div>
@@ -213,8 +184,7 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
           {/* Guest Count */}
           <div className="space-y-2">
             <Label htmlFor="guestCount" className="flex items-center gap-2 text-sm font-medium">
-              <Users className="h-4 w-4" />
-              {t("guestCount")} *
+              <Users className="h-4 w-4" /> {t("guestCount")} *
             </Label>
             <Input
               id="guestCount"
@@ -237,8 +207,7 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
 
             <div className="space-y-2">
               <Label htmlFor="name" className="flex items-center gap-2 text-sm">
-                <User className="h-4 w-4" />
-                {t("fullName")} *
+                <User className="h-4 w-4" /> {t("fullName")} *
               </Label>
               <Input
                 id="name"
@@ -253,8 +222,7 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
 
             <div className="space-y-2">
               <Label htmlFor="email" className="flex items-center gap-2 text-sm">
-                <Mail className="h-4 w-4" />
-                {t("email")} *
+                <Mail className="h-4 w-4" /> {t("email")} *
               </Label>
               <Input
                 id="email"
@@ -269,8 +237,7 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
 
             <div className="space-y-2">
               <Label htmlFor="phone" className="flex items-center gap-2 text-sm">
-                <Phone className="h-4 w-4" />
-                {t("phone")}
+                <Phone className="h-4 w-4" /> {t("phone")}
               </Label>
               <Input
                 id="phone"
@@ -309,23 +276,13 @@ export function BookingForm({ hall, bookedDates, onClose }: BookingFormProps) {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <Button 
-              type="button" 
-              variant="outline" 
-              onClick={onClose} 
-              className="flex-1 h-11 bg-transparent order-2 sm:order-1"
-            >
+            <Button type="button" variant="outline" onClick={onClose} className="flex-1 h-11 order-2 sm:order-1">
               {t("cancel")}
             </Button>
-            <Button 
-              type="submit" 
-              disabled={isSubmitting || !date} 
-              className="flex-1 h-11 order-1 sm:order-2"
-            >
+            <Button type="submit" disabled={isSubmitting || !date} className="flex-1 h-11 order-1 sm:order-2">
               {isSubmitting ? (
                 <>
-                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  {t("loading")}
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" /> {t("loading")}
                 </>
               ) : (
                 t("submitBooking")
