@@ -70,6 +70,9 @@ const flatTranslations: Record<Language, Record<string, string>> = {
     hallOwnerRole: "Hall Owner",
     customerDesc: "Book venues for your events",
     hallOwnerDesc: "List and manage your venues",
+    roleOwner: "Hall Owner",
+hasAccount: "Already have an account?",
+
     
     // Hall
     capacity: "Capacity",
@@ -95,6 +98,10 @@ const flatTranslations: Record<Language, Record<string, string>> = {
     estimatedTotal: "Estimated Total",
     dateNotAvailable: "This date is not available",
     bookingSubmitted: "Booking request submitted! The venue will contact you soon.",
+    bookThisVenue: "Book this venue",
+    startingFrom: "Starting from",
+    contactVenue: "Contact venue",
+
     
     // Status
     pending: "Pending",
@@ -241,6 +248,8 @@ const flatTranslations: Record<Language, Record<string, string>> = {
     hallOwnerRole: "Pronar Salle",
     customerDesc: "Rezervoni salla për eventet tuaja",
     hallOwnerDesc: "Listoni dhe menaxhoni sallat tuaja",
+    roleOwner: "Pronar Restauranti",
+    hasAccount: "Keni tashmë një llogari?",
     
     // Hall
     capacity: "Kapaciteti",
@@ -266,6 +275,10 @@ const flatTranslations: Record<Language, Record<string, string>> = {
     estimatedTotal: "Totali i Vlerësuar",
     dateNotAvailable: "Kjo datë nuk është e disponueshme",
     bookingSubmitted: "Kërkesa për rezervim u dërgua!",
+    bookThisVenue: "Rezervo këtë sallë",
+    startingFrom: "Fillon nga",
+    contactVenue: "Kontakto sallën",
+
     
     // Status
     pending: "Në Pritje",
@@ -412,6 +425,8 @@ const flatTranslations: Record<Language, Record<string, string>> = {
     hallOwnerRole: "Сопственик на Сала",
     customerDesc: "Резервирајте сали за вашите настани",
     hallOwnerDesc: "Листајте и управувајте со вашите сали",
+    roleOwner: "Сопственик на сала",
+    hasAccount: "Веќе имате профил?",
     
     // Hall
     capacity: "Капацитет",
@@ -437,6 +452,10 @@ const flatTranslations: Record<Language, Record<string, string>> = {
     estimatedTotal: "Проценет Тотал",
     dateNotAvailable: "Овој датум не е достапен",
     bookingSubmitted: "Барањето за резервација е поднесено!",
+    bookThisVenue: "Резервирајте ја оваа сала",
+    startingFrom: "Почнува од",
+    contactVenue: "Контактирајте ја салата",
+
     
     // Status
     pending: "Во Чекање",
