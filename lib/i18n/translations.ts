@@ -45,6 +45,9 @@ export const translations = {
       roleCustomer: 'Book a venue for my wedding',
       roleOwner: 'List my venue on Marry.mk',
       signUpSuccess: 'Account created! Please check your email to confirm.',
+      roleOwner: "Hall Owner",
+      hasAccount: "Already have an account?",
+
     },
     // Hall Details
     hall: {
@@ -71,6 +74,10 @@ export const translations = {
       submit: 'Submit Booking Request',
       success: 'Booking request submitted! The venue will contact you soon.',
       dateUnavailable: 'This date is already booked',
+      bookThisVenue: "Book this venue",
+      startingFrom: "Starting from",
+      contactVenue: "Contact venue",
+
     },
     // Dashboard
     dashboard: {
@@ -164,6 +171,9 @@ export const translations = {
       roleCustomer: 'Rezervoj një sallë për dasmën time',
       roleOwner: 'Listoj sallën time në Marry.mk',
       signUpSuccess: 'Llogaria u krijua! Kontrolloni emailin për konfirmim.',
+      roleOwner: "Pronar i sallës",
+      hasAccount: "Keni tashmë një llogari?",
+
     },
     // Hall Details
     hall: {
@@ -190,6 +200,10 @@ export const translations = {
       submit: 'Dërgo Kërkesën për Rezervim',
       success: 'Kërkesa për rezervim u dërgua! Salla do t\'ju kontaktojë së shpejti.',
       dateUnavailable: 'Kjo datë është tashmë e rezervuar',
+      bookThisVenue: "Rezervo këtë sallë",
+      startingFrom: "Fillon nga",
+      contactVenue: "Kontakto sallën",
+
     },
     // Dashboard
     dashboard: {
@@ -283,6 +297,9 @@ export const translations = {
       roleCustomer: 'Резервирам сала за мојата свадба',
       roleOwner: 'Ја регистрирам мојата сала на Marry.mk',
       signUpSuccess: 'Сметката е создадена! Проверете ја е-поштата за потврда.',
+      roleOwner: "Сопственик на сала",
+      hasAccount: "Веќе имате профил?",
+
     },
     // Hall Details
     hall: {
@@ -309,6 +326,10 @@ export const translations = {
       submit: 'Поднеси Барање за Резервација',
       success: 'Барањето за резервација е поднесено! Салата ќе ве контактира наскоро.',
       dateUnavailable: 'Овој датум е веќе резервиран',
+      bookThisVenue: "Резервирајте ја оваа сала",
+      startingFrom: "Почнува од",
+      contactVenue: "Контактирајте ја салата",
+
     },
     // Dashboard
     dashboard: {
