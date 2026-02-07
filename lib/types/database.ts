@@ -1,4 +1,4 @@
-export type UserRole = 'customer' | 'hall_owner' | 'admin';
+export type UserRole = 'customer' | 'hall_owner' | 'service_owner' | 'admin';
 export type HallStatus = 'pending' | 'approved' | 'rejected';
 export type ReservationStatus = 'pending' | 'confirmed' | 'cancelled';
 export type Language = 'en' | 'sq' | 'mk';
