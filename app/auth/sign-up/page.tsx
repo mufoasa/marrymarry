@@ -16,13 +16,14 @@ import {
 import { createClient } from '@/lib/supabase/client';
 import { toast } from '@/hooks/use-toast';
 import { useLanguage } from '@/lib/i18n/context';
-import { Heart, Building2 } from 'lucide-react';
+import { Heart, Building2, Briefcase } from 'lucide-react';
 
 export default function SignUpPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [fullName, setFullName] = useState('');
+  const [role, setRole] = useState<'hall_owner' | 'service_owner'>('hall_owner');
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
@@ -61,7 +62,7 @@ export default function SignUpPage() {
           `${window.location.origin}/auth/callback`,
         data: {
           full_name: fullName,
-          role: 'hall_owner',
+          role, // 🔥 IMPORTANT
         },
       },
     });
@@ -87,10 +88,11 @@ export default function SignUpPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-4 py-8">
       <div className="w-full max-w-md">
+        {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2">
             <Heart className="h-8 w-8 text-primary fill-primary" />
-            <span className="text-2xl font-serif font-semibold text-foreground">
+            <span className="text-2xl font-serif font-semibold">
               Marry.mk
             </span>
           </Link>
@@ -102,48 +104,48 @@ export default function SignUpPage() {
               {t('signUp')}
             </CardTitle>
             <CardDescription>
-              Create a hall owner account
+              Choose your account type
             </CardDescription>
           </CardHeader>
 
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Full name */}
               <div className="space-y-2">
                 <Label htmlFor="fullName">{t('fullName')}</Label>
                 <Input
                   id="fullName"
-                  type="text"
-                  placeholder="John Doe"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   required
                 />
               </div>
 
+              {/* Email */}
               <div className="space-y-2">
                 <Label htmlFor="email">{t('email')}</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
 
+              {/* Password */}
               <div className="space-y-2">
                 <Label htmlFor="password">{t('password')}</Label>
                 <Input
                   id="password"
                   type="password"
-                  placeholder="********"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
 
+              {/* Confirm password */}
               <div className="space-y-2">
                 <Label htmlFor="confirmPassword">
                   {t('confirmPassword')}
@@ -151,21 +153,60 @@ export default function SignUpPage() {
                 <Input
                   id="confirmPassword"
                   type="password"
-                  placeholder="********"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
               </div>
 
-              {/* Fixed role display */}
-              <div className="flex items-center gap-3 p-3 rounded-lg border border-primary bg-primary/5">
-                <Building2 className="h-5 w-5 text-primary" />
-                <span className="text-sm font-medium">
-                  {t('roleOwner')}
-                </span>
+              {/* ROLE SELECTOR */}
+              <div className="space-y-2">
+                <Label>{t('accountType')}</Label>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setRole('hall_owner')}
+                    className={`flex items-center gap-3 rounded-lg border p-3 transition ${
+                      role === 'hall_owner'
+                        ? 'border-primary bg-primary/5'
+                        : 'border-border hover:bg-muted'
+                    }`}
+                  >
+                    <Building2 className="h-5 w-5 text-primary" />
+                    <div className="text-left">
+                      <p className="text-sm font-medium">
+                        {t('hallOwner')}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {t('hallOwnerDesc')}
+                      </p>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setRole('service_owner')}
+                    className={`flex items-center gap-3 rounded-lg border p-3 transition ${
+                      role === 'service_owner'
+                        ? 'border-primary bg-primary/5'
+                        : 'border-border hover:bg-muted'
+                    }`}
+                  >
+                    <Briefcase className="h-5 w-5 text-primary" />
+                    <div className="text-left">
+                      <p className="text-sm font-medium">
+                        {t('serviceOwner')}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {t('serviceOwnerDesc')}
+                      </p>
+                    </div>
+                  </button>
+                </div>
               </div>
 
+              {/* Submit */}
               <Button type="submit" className="w-full" disabled={isLoading}>
                 {isLoading ? t('loading') : t('signUp')}
               </Button>
