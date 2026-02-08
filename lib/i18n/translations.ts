@@ -72,9 +72,9 @@ export const translations = {
       success: 'Booking request submitted! The venue will contact you soon.',
       dateUnavailable: 'This date is already booked',
       bookThisVenue: "Book This Venue",
-startingFrom: "Starting from",
-contactVenue: "Contact Venue",
-toVenues: "Back to Venues",
+      startingFrom: "Starting from",
+      contactVenue: "Contact Venue",
+      toVenues: "Back to Venues",
     },
     // Dashboard
     dashboard: {
@@ -89,6 +89,9 @@ toVenues: "Back to Venues",
       reservations: 'Reservations',
       inquiries: 'Inquiries',
       settings: 'Settings',
+      noVenuesYet: "No venues yet",
+      addFirstVenueDescription: "You haven’t added any venues yet. Create your first venue to start receiving bookings.",
+      addFirstVenue: "Add your first venue",
     },
     // Status
     status: {
@@ -195,9 +198,9 @@ toVenues: "Back to Venues",
       success: 'Kërkesa për rezervim u dërgua! Salla do t\'ju kontaktojë së shpejti.',
       dateUnavailable: 'Kjo datë është tashmë e rezervuar',
       bookThisVenue: "Rezervo këtë sallë",
-startingFrom: "Duke filluar nga",
-contactVenue: "Kontakto sallën",
-toVenues: "Kthehu te sallat",
+      startingFrom: "Duke filluar nga",
+      contactVenue: "Kontakto sallën",
+      toVenues: "Kthehu te sallat",
     },
     // Dashboard
     dashboard: {
@@ -212,6 +215,10 @@ toVenues: "Kthehu te sallat",
       reservations: 'Rezervimet',
       inquiries: 'Pyetjet',
       settings: 'Cilësimet',
+      noVenuesYet: "Nuk ka ende salla",
+      addFirstVenueDescription: "Ende nuk keni shtuar asnjë sallë. Krijoni sallën tuaj të parë për të filluar të merrni rezervime.",
+      addFirstVenue: "Shto sallën e parë",
+
     },
     // Status
     status: {
@@ -318,9 +325,9 @@ toVenues: "Kthehu te sallat",
       success: 'Барањето за резервација е поднесено! Салата ќе ве контактира наскоро.',
       dateUnavailable: 'Овој датум е веќе резервиран',
       bookThisVenue: "Резервирај ја салата",
-startingFrom: "Почнувајќи од",
-contactVenue: "Контактирај ја салата",
-toVenues: "Назад кон салите",
+      startingFrom: "Почнувајќи од",
+      contactVenue: "Контактирај ја салата",
+      toVenues: "Назад кон салите",
     },
     // Dashboard
     dashboard: {
@@ -335,6 +342,10 @@ toVenues: "Назад кон салите",
       reservations: 'Резервации',
       inquiries: 'Прашања',
       settings: 'Поставки',
+      noVenuesYet: "Сѐ уште нема сали",
+      addFirstVenueDescription: "Сѐ уште немате додадено ниту една сала. Додајте ја вашата прва сала за да започнете со резервации.",
+      addFirstVenue: "Додај ја првата сала",
+
     },
     // Status
     status: {
