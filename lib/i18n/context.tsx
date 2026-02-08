@@ -107,9 +107,9 @@ const flatTranslations: Record<Language, Record<string, string>> = {
     dateNotAvailable: "This date is not available",
     bookingSubmitted: "Booking request submitted! The venue will contact you soon.",
     bookThisVenue: "Book This Venue",
-startingFrom: "Starting from",
-contactVenue: "Contact Venue",
-toVenues: "Back to Venues",
+    startingFrom: "Starting from",
+    contactVenue: "Contact Venue",
+    toVenues: "Back to Venues",
     
     // Status
     pending: "Pending",
@@ -171,6 +171,10 @@ toVenues: "Back to Venues",
     status: "Status",
     addVenue: "Add Venue",
     editVenue: "Edit Venue",
+    noVenuesYet: "No venues yet",
+    addFirstVenueDescription: "You haven’t added any venues yet. Create your first venue to start receiving bookings.",
+    addFirstVenue: "Add your first venue",
+
     
     // Hero
     heroTitle: "Find Your Perfect Wedding Venue",
@@ -293,9 +297,9 @@ toVenues: "Back to Venues",
     dateNotAvailable: "Kjo datë nuk është e disponueshme",
     bookingSubmitted: "Kërkesa për rezervim u dërgua!",
     bookThisVenue: "Rezervo këtë sallë",
-startingFrom: "Duke filluar nga",
-contactVenue: "Kontakto sallën",
-toVenues: "Kthehu te sallat",
+    startingFrom: "Duke filluar nga",
+    contactVenue: "Kontakto sallën",
+    toVenues: "Kthehu te sallat",
     
     // Status
     pending: "Në Pritje",
@@ -357,6 +361,10 @@ toVenues: "Kthehu te sallat",
     status: "Statusi",
     addVenue: "Shto Sallë",
     editVenue: "Ndrysho Sallën",
+    noVenuesYet: "Nuk ka ende salla",
+    addFirstVenueDescription: "Ende nuk keni shtuar asnjë sallë. Krijoni sallën tuaj të parë për të filluar të merrni rezervime.",
+    addFirstVenue: "Shto sallën e parë",
+
     
     // Hero
     heroTitle: "Gjeni Sallën Perfekte të Dasmës",
@@ -479,9 +487,9 @@ toVenues: "Kthehu te sallat",
     dateNotAvailable: "Овој датум не е достапен",
     bookingSubmitted: "Барањето за резервација е поднесено!",
     bookThisVenue: "Резервирај ја салата",
-startingFrom: "Почнувајќи од",
-contactVenue: "Контактирај ја салата",
-toVenues: "Назад кон салите",
+    startingFrom: "Почнувајќи од",
+    contactVenue: "Контактирај ја салата",
+    toVenues: "Назад кон салите",
     
     // Status
     pending: "Во Чекање",
@@ -543,6 +551,10 @@ toVenues: "Назад кон салите",
     status: "Статус",
     addVenue: "Додај Сала",
     editVenue: "Уреди Сала",
+    noVenuesYet: "Сѐ уште нема сали",
+    addFirstVenueDescription: "Сѐ уште немате додадено ниту една сала. Додајте ја вашата прва сала за да започнете со резервации.",
+    addFirstVenue: "Додај ја првата сала",
+
     
     // Hero
     heroTitle: "Пронајдете Совршена Сала за Свадба",
