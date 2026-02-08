@@ -31,7 +31,7 @@ export default function TermsOfServicePage() {
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold">Booking Rules</h2>
             <p className="text-muted-foreground">
-              All bookings are subject to approval by venue owners. Payments are handled securely through trusted providers.
+              All bookings are subject to approval by venue owners. Payments are all handled outside of Marry.mk's reach in any way shape or form.
             </p>
             <Separator />
           </div>
