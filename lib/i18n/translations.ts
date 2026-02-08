@@ -71,6 +71,10 @@ export const translations = {
       submit: 'Submit Booking Request',
       success: 'Booking request submitted! The venue will contact you soon.',
       dateUnavailable: 'This date is already booked',
+      bookThisVenue: "Book This Venue",
+startingFrom: "Starting from",
+contactVenue: "Contact Venue",
+toVenues: "Back to Venues",
     },
     // Dashboard
     dashboard: {
@@ -190,6 +194,10 @@ export const translations = {
       submit: 'Dërgo Kërkesën për Rezervim',
       success: 'Kërkesa për rezervim u dërgua! Salla do t\'ju kontaktojë së shpejti.',
       dateUnavailable: 'Kjo datë është tashmë e rezervuar',
+      bookThisVenue: "Rezervo këtë sallë",
+startingFrom: "Duke filluar nga",
+contactVenue: "Kontakto sallën",
+toVenues: "Kthehu te sallat",
     },
     // Dashboard
     dashboard: {
@@ -309,6 +317,10 @@ export const translations = {
       submit: 'Поднеси Барање за Резервација',
       success: 'Барањето за резервација е поднесено! Салата ќе ве контактира наскоро.',
       dateUnavailable: 'Овој датум е веќе резервиран',
+      bookThisVenue: "Резервирај ја салата",
+startingFrom: "Почнувајќи од",
+contactVenue: "Контактирај ја салата",
+toVenues: "Назад кон салите",
     },
     // Dashboard
     dashboard: {
