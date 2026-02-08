@@ -106,6 +106,10 @@ const flatTranslations: Record<Language, Record<string, string>> = {
     estimatedTotal: "Estimated Total",
     dateNotAvailable: "This date is not available",
     bookingSubmitted: "Booking request submitted! The venue will contact you soon.",
+    bookThisVenue: "Book This Venue",
+startingFrom: "Starting from",
+contactVenue: "Contact Venue",
+toVenues: "Back to Venues",
     
     // Status
     pending: "Pending",
@@ -288,6 +292,10 @@ const flatTranslations: Record<Language, Record<string, string>> = {
     estimatedTotal: "Totali i Vlerësuar",
     dateNotAvailable: "Kjo datë nuk është e disponueshme",
     bookingSubmitted: "Kërkesa për rezervim u dërgua!",
+    bookThisVenue: "Rezervo këtë sallë",
+startingFrom: "Duke filluar nga",
+contactVenue: "Kontakto sallën",
+toVenues: "Kthehu te sallat",
     
     // Status
     pending: "Në Pritje",
@@ -470,6 +478,10 @@ const flatTranslations: Record<Language, Record<string, string>> = {
     estimatedTotal: "Проценет Тотал",
     dateNotAvailable: "Овој датум не е достапен",
     bookingSubmitted: "Барањето за резервација е поднесено!",
+    bookThisVenue: "Резервирај ја салата",
+startingFrom: "Почнувајќи од",
+contactVenue: "Контактирај ја салата",
+toVenues: "Назад кон салите",
     
     // Status
     pending: "Во Чекање",
