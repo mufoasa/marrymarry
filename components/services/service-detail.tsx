@@ -140,7 +140,7 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
                   src={allImages[currentImageIndex] || '/placeholder.svg'}
                   alt={service.name}
                   fill
-                  className="object-cover"
+                  className="object-contain bg-background"
                   sizes="(max-width: 768px) 100vw, 66vw"
                 />
 
