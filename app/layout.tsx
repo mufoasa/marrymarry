@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Marry.mk - Find Your Perfect Wedding Venue',
   description: 'Discover and book stunning wedding halls across Macedonia. Browse venues, check availability, and make your dream wedding a reality.',
-  keywords: ['wedding', 'venue', 'hall', 'Macedonia', 'booking', 'celebration'],
+  keywords: ['wedding', 'venue', 'hall', 'Macedonia', 'booking', 'celebration', 'restoran dasmash', 'restaurant dasmash', 'sallon dasmash', 'dasem', 'dasma', 'restoran', 'restaurant'],
 }
 
 export const viewport: Viewport = {
