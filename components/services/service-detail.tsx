@@ -1,8 +1,6 @@
 'use client';
 
-import React from "react"
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -57,8 +55,8 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
     : service.description;
 
   const allImages = service.cover_image 
-    ? [service.cover_image, ...service.images.filter(img => img !== service.cover_image)]
-    : service.images;
+    ? [service.cover_image, ...(service.images?.filter(img => img !== service.cover_image) || [])]
+    : service.images || [];
 
   const priceDisplay = service.price_from && service.price_to
     ? `€${service.price_from} - €${service.price_to}`
@@ -100,30 +98,27 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
     }
   };
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
-  };
+  const nextImage = () => setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+  const prevImage = () => setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
 
   return (
-    <div className="py-8">
-      <div className="container mx-auto px-4">
+    <div className="py-8 overflow-x-hidden w-full max-w-full">
+      <div className="container mx-auto px-4 max-w-full">
+        {/* Back Button */}
         <Button variant="ghost" asChild className="mb-6">
-          <Link href="/services" className="gap-2">
+          <Link href="/services" className="gap-2 flex items-center">
             <ArrowLeft className="h-4 w-4" />
             {t('back')}
           </Link>
         </Button>
 
-        <div className="grid gap-8 lg:grid-cols-3">
+        {/* Grid Layout */}
+        <div className="grid gap-8 lg:grid-cols-3 max-w-full">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-6 max-w-full">
             {/* Image Gallery */}
             {allImages.length > 0 && (
-              <div className="relative aspect-[16/9] rounded-lg overflow-hidden bg-muted">
+              <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden bg-muted max-w-full">
                 <Image
                   src={allImages[currentImageIndex] || '/placeholder.svg'}
                   alt={service.name}
@@ -135,7 +130,7 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
                     <Button
                       variant="secondary"
                       size="icon"
-                      className="absolute left-4 top-1/2 -translate-y-1/2"
+                      className="absolute left-2 top-1/2 -translate-y-1/2"
                       onClick={prevImage}
                     >
                       <ChevronLeft className="h-4 w-4" />
@@ -143,12 +138,12 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
                     <Button
                       variant="secondary"
                       size="icon"
-                      className="absolute right-4 top-1/2 -translate-y-1/2"
+                      className="absolute right-2 top-1/2 -translate-y-1/2"
                       onClick={nextImage}
                     >
                       <ChevronRight className="h-4 w-4" />
                     </Button>
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
                       {allImages.map((_, idx) => (
                         <button
                           key={idx}
@@ -166,7 +161,7 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
 
             {/* Thumbnails */}
             {allImages.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto pb-2">
+              <div className="flex gap-2 overflow-x-auto pb-2 max-w-full">
                 {allImages.map((img, idx) => (
                   <button
                     key={idx}
@@ -183,14 +178,12 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
 
             {/* Info */}
             <div>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
                 <Badge variant="secondary" className="text-base">
                   {categoryIcons[service.category]} {t(service.category)}
                 </Badge>
                 {service.is_featured && (
-                  <Badge className="bg-primary text-primary-foreground">
-                    {t('featured')}
-                  </Badge>
+                  <Badge className="bg-primary text-primary-foreground">{t('featured')}</Badge>
                 )}
               </div>
 
@@ -202,7 +195,7 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
               </div>
 
               {description && (
-                <Card>
+                <Card className="max-w-full">
                   <CardHeader>
                     <CardTitle>{t('description')}</CardTitle>
                   </CardHeader>
@@ -215,10 +208,10 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-full">
             {/* Pricing */}
             {priceDisplay && (
-              <Card>
+              <Card className="max-w-full">
                 <CardHeader>
                   <CardTitle>{t('pricing')}</CardTitle>
                 </CardHeader>
@@ -229,7 +222,7 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
             )}
 
             {/* Contact */}
-            <Card>
+            <Card className="max-w-full">
               <CardHeader>
                 <CardTitle>{t('contact')}</CardTitle>
               </CardHeader>
@@ -259,11 +252,10 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
                   </a>
                 )}
 
+                {/* Inquiry Form */}
                 <Dialog open={isInquiryOpen} onOpenChange={setIsInquiryOpen}>
                   <DialogTrigger asChild>
-                    <Button className="w-full mt-4" size="lg">
-                      {t('sendInquiry')}
-                    </Button>
+                    <Button className="w-full mt-4" size="lg">{t('sendInquiry')}</Button>
                   </DialogTrigger>
                   <DialogContent className="max-w-md">
                     <DialogHeader>
