@@ -47,6 +47,11 @@ export function AdminSidebar() {
     {
       title: t('serviceApprovals'),
       href: '/admin/service-approvals',
+      icon: CheckCircle,
+    },
+    {
+      title: t('services'),
+      href: '/admin/services',
       icon: Sparkles,
     },
     {
