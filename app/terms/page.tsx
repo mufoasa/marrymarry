@@ -26,7 +26,7 @@ export default function TermsOfServicePage() {
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold">1. Acceptance of Terms</h2>
             <p className="text-muted-foreground">
-              By accessing or using Marry.mk (“the Platform”), you agree to be bound by these Terms of Service. If you do not agree, please refrain from using our services.
+              By accessing or using Marry.mk,Martohu.mk or Vencaj.mk, you agree to be bound by these Terms of Service. If you do not agree, please refrain from using our services.
             </p>
             <Separator />
           </div>
@@ -34,7 +34,7 @@ export default function TermsOfServicePage() {
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold">2. Nature of Service</h2>
             <p className="text-muted-foreground">
-              Marry.mk is an intermediary platform connecting users (“Couples”) with third-party wedding venues (“Owners”). We are not a party to any contracts between Couples and Owners and do not guarantee outcomes of any booking.
+              Marry.mk is an intermediary platform connecting users with third-party wedding venues owners. We are not a party to any contracts between Couples and Owners and do not guarantee outcomes of any booking.
             </p>
             <Separator />
           </div>
