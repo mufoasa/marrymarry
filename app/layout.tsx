@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import { Toaster } from '@/components/ui/toaster'
 import { Providers } from '@/components/providers'
 import './globals.css'
@@ -20,11 +21,22 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Marry.mk - Find Your Perfect Wedding Venue',
-  description: 'Discover and book stunning wedding halls across Macedonia. Browse venues, check availability, and make your dream wedding a reality.',
+  description:
+    'Discover and book stunning wedding halls across Macedonia. Browse venues, check availability, and make your dream wedding a reality.',
   keywords: [
-    'wedding', 'venue', 'hall', 'Macedonia', 'booking',
-    'celebration', 'restoran dasmash', 'restaurant dasmash',
-    'sallon dasmash', 'dasem', 'dasma', 'restoran', 'restaurant'
+    'wedding',
+    'venue',
+    'hall',
+    'Macedonia',
+    'booking',
+    'celebration',
+    'restoran dasmash',
+    'restaurant dasmash',
+    'sallon dasmash',
+    'dasem',
+    'dasma',
+    'restoran',
+    'restaurant',
   ],
   other: {
     monetag: "9d89fe21120a991dd9daa30f9e7b1030",
@@ -49,7 +61,15 @@ export default function RootLayout({
           {children}
           <Toaster />
         </Providers>
+
         <Analytics />
+
+        
+        <Script
+          src="https://quge5.com/88/tag.min.js"
+          data-zone="213902"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
