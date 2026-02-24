@@ -22,22 +22,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Marry.mk - Find Your Perfect Wedding Venue',
   description:
-    'Discover and book stunning wedding halls across Macedonia. Browse venues, check availability, and make your dream wedding a reality.',
-  keywords: [
-    'wedding',
-    'venue',
-    'hall',
-    'Macedonia',
-    'booking',
-    'celebration',
-    'restoran dasmash',
-    'restaurant dasmash',
-    'sallon dasmash',
-    'dasem',
-    'dasma',
-    'restoran',
-    'restaurant',
-  ],
+    'Discover and book stunning wedding halls across Macedonia.',
   other: {
     monetag: "9d89fe21120a991dd9daa30f9e7b1030",
   },
@@ -51,11 +36,18 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://quge5.com/88/tag.min.js"
+          data-zone="213902"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body className={`${playfair.variable} ${inter.variable} font-sans antialiased`}>
         <Providers>
           {children}
@@ -63,13 +55,6 @@ export default function RootLayout({
         </Providers>
 
         <Analytics />
-
-        
-        <Script
-          src="https://quge5.com/88/tag.min.js"
-          data-zone="213902"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   )
