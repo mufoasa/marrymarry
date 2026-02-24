@@ -4,6 +4,7 @@ import { Playfair_Display, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Toaster } from '@/components/ui/toaster'
 import { Providers } from '@/components/providers'
+import SWRegister from "./sw-register"
 import './globals.css'
 
 const playfair = Playfair_Display({
